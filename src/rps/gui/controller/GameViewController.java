@@ -1,9 +1,12 @@
 package rps.gui.controller;
 
 // Java imports
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -12,6 +15,9 @@ import java.util.ResourceBundle;
  * @author smsj
  */
 public class GameViewController implements Initializable {
+
+    public Label lblUsername;
+    public Label lblInsertedUsername;
 
     /**
      * Initializes the controller class.
@@ -28,5 +34,14 @@ public class GameViewController implements Initializable {
     }
 
     public void OnPlayScissor(MouseEvent mouseEvent) {
+    }
+
+    public void onSetName(ActionEvent actionEvent) throws IOException {
+        if (lblUsername != null) {
+            // lblUsername.getText() &&
+            lblInsertedUsername.setText(lblUsername.getText());
+
+            // lblInsertedUsername.setText() == lblUsername.getText();
+        }
     }
 }
