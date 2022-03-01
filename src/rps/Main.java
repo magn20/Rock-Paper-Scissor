@@ -1,6 +1,8 @@
 package rps;
 
 //Project imports
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.stage.Stage;
 import rps.gui.ConsoleApp;
 import rps.gui.JavaFXApp;
@@ -25,9 +27,11 @@ public class Main {
         //JavaFX version
         //startRPSJavaFXGame();
     }
-
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("GameView");
+    
+    public void start(Stage primaryStage) throws Exception
+    {
+        Parent pane = FXMLLoader.load(
+                getClass().getResource( "GameView.fxml" ) );
     }
     /**
      * Start a JavaFX version of the game
