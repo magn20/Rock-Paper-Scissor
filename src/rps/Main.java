@@ -1,6 +1,7 @@
 package rps;
 
 //Project imports
+import javafx.stage.Stage;
 import rps.gui.ConsoleApp;
 import rps.gui.JavaFXApp;
 
@@ -25,6 +26,9 @@ public class Main {
         //startRPSJavaFXGame();
     }
 
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("GameView");
+    }
     /**
      * Start a JavaFX version of the game
      */
