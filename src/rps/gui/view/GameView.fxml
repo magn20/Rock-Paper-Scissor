@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="610.0" layoutX="-8.0">
+      <ImageView fitHeight="400.0" fitWidth="610.0" layoutX="-10.0">
          <image>
             <Image url="@../../../../../Users/math3/Desktop/Udklip.PNG" />
          </image>
       </ImageView>
+      <Button fx:id="RockBtn" layoutX="52.0" layoutY="317.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="110.0" text="Button" />
+      <Button fx:id="PaperBtn" layoutX="219.0" layoutY="317.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="110.0" text="Button" />
+      <Button fx:id="ScissorsBtn" layoutX="377.0" layoutY="317.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="110.0" text="Button" />
    </children>
 </AnchorPane>
