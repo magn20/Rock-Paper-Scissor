@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -17,11 +18,11 @@ import java.util.ResourceBundle;
  */
 public class GameViewController implements Initializable {
 
-    @FXML
-    public Label lblUsername;
+
 
     @FXML
     public Label lblInsertedUsername;
+    public TextField lblUsername;
 
     /**
      * Initializes the controller class.
