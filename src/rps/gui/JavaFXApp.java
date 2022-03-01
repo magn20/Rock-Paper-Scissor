@@ -1,6 +1,7 @@
 package rps.gui;
 
 // Java imports
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,18 +17,16 @@ import javafx.scene.Scene;
  */
 public class JavaFXApp extends Application {
     private static FXMLLoader fxmlLoaderMain;
+
     public static void launch() {
         Application.launch();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        fxmlLoaderMain = new FXMLLoader(getClass().getResource("./gui/view/GameView.fxml"));
-        primaryStage.centerOnScreen();
-        Scene scene = new Scene(fxmlLoaderMain.load());
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Rock, Paper, Scissor");
+        Parent root = FXMLLoader.load(getClass().getResource("/rps/gui/view/GameView.fxml"));
+        primaryStage.setTitle("Rock Paper Scissor");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 }
