@@ -27,7 +27,7 @@ public class Main {
         //JavaFX version
         //startRPSJavaFXGame();
     }
-    
+
     public void start(Stage primaryStage) throws Exception
     {
         Parent pane = FXMLLoader.load(
