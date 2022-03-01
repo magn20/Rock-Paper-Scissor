@@ -29,20 +29,9 @@ public class Main extends Application {
         launch(args);
         //Console version
         
-        //startRPSConsoleGame();
+        startRPSConsoleGame();
         //JavaFX version
         //startRPSJavaFXGame();
-    }
-
-
-    public void start(Stage primaryStage) throws Exception {
-        fxmlLoaderMain = new FXMLLoader(getClass().getResource("./gui/view/GameView.fxml"));
-        primaryStage.centerOnScreen();
-        Scene scene = new Scene(fxmlLoaderMain.load());
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Rock, Paper, Scissor");
-        primaryStage.show();
     }
 
     /**
@@ -55,8 +44,13 @@ public class Main extends Application {
     /**
      * Start a console version of the game
      */
-    public void startRPSConsoleGame() {
+    public static void startRPSConsoleGame() {
         new ConsoleApp().startGame();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
     }
 }
 

@@ -3,6 +3,9 @@ package rps.bll.player;
 import rps.bll.game.IGameState;
 import rps.bll.game.Move;
 
+import static rps.bll.game.Move.Paper;
+import static rps.bll.game.Move.Scissor;
+
 public class AiPlayer implements IPlayer{
 
 
@@ -18,6 +21,16 @@ public class AiPlayer implements IPlayer{
 
     @Override
     public Move doMove(IGameState state) {
-        return null;
+      double random = Math.random() * 3;
+      int randomNumber = (int) random;
+      switch (randomNumber) {
+          case 0:
+              return Move.Rock;
+          case 1:
+              return Move.Paper;
+          default:
+              return Move.Scissor;
+      }
+
     }
 }

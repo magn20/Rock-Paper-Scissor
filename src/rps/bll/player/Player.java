@@ -45,11 +45,25 @@ public class Player implements IPlayer {
      * @return Next move
      */
     @Override
-    public Move doMove(IGameState state) {
+   //  public Move doMove(IGameState state) {
         //Historic data to analyze and decide next move...
-        ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
+       // ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
 
         //Implement better AI here...
-        return Move.Rock;
+        public Move doMove(IGameState state) {
+            double random = Math.random() * 3;
+            int randomNumber = (int) random;
+            switch (randomNumber) {
+                case 0:
+                    return Move.Rock;
+                case 1:
+                    return Move.Paper;
+                default:
+                    return Move.Scissor;
+            }
+
+
+
+        //return Move.Rock;
     }
 }

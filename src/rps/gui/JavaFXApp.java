@@ -4,8 +4,10 @@ package rps.gui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import rps.gui.ConsoleApp;
+import rps.gui.JavaFXApp;
+import javafx.scene.Scene;
 
 /**
  * JavaFX implementation of the RPS game
@@ -13,17 +15,19 @@ import javafx.stage.Stage;
  * @author smsj
  */
 public class JavaFXApp extends Application {
-
+    private static FXMLLoader fxmlLoaderMain;
     public static void launch() {
         Application.launch();
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/rps/gui/view/GameView.fxml"));
-        stage.setTitle("Welcome to the not-implemented Rock-Paper-Scissor game!");
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void start(Stage primaryStage) throws Exception {
+        fxmlLoaderMain = new FXMLLoader(getClass().getResource("./gui/view/GameView.fxml"));
+        primaryStage.centerOnScreen();
+        Scene scene = new Scene(fxmlLoaderMain.load());
+        primaryStage.setResizable(false);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Rock, Paper, Scissor");
+        primaryStage.show();
     }
 }
