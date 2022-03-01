@@ -2,6 +2,7 @@ package rps.gui.controller;
 
 // Java imports
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -16,7 +17,10 @@ import java.util.ResourceBundle;
  */
 public class GameViewController implements Initializable {
 
+    @FXML
     public Label lblUsername;
+
+    @FXML
     public Label lblInsertedUsername;
 
     /**
