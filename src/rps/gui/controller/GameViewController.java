@@ -149,6 +149,7 @@ public class GameViewController implements Initializable {
             lblButWins.setText(String.valueOf(botWin));
         }
 
+
         if (result.getType() != ResultType.Tie){
 
             if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == "Hans"){
@@ -173,16 +174,21 @@ public class GameViewController implements Initializable {
                 imgCombat.setImage(new Image("/rps/gui/img/Rock_Beats_Scissors_ccexpress (1).png"));
             }
 
+        }
+
         if (result.getType() == ResultType.Tie){
 
-
-            
+            if (String.valueOf(result.getWinnerMove()) == "Paper")
+                imgCombat.setImage(new Image("/rps/gui/img/Paper_Vs_Paper.png"));
         }
 
-        }
+        if (String.valueOf(result.getWinnerMove()) == "Paper")
+            imgCombat.setImage(new Image("/rps/gui/img/Paper_Vs_Paper.png"));
+    }
 
 
     }
+
 
     public String getResultAsString(Result result) {
         String statusText = result.getType() == ResultType.Win ? "wins over " : "ties ";
