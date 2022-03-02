@@ -70,7 +70,7 @@ public class GameViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gameStarted = false;
-        soundTrack();
+
     }
 
     public void OnPlayRock(MouseEvent mouseEvent) {
@@ -214,9 +214,8 @@ public class GameViewController implements Initializable {
 
     }
 
-    public void soundTrack() {
-        Media media = new Media(getClass().getResource("rps/gui/sounds/The Worst Song Ever.mp3").toExternalForm());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-    }
+
+
+
 }
+
