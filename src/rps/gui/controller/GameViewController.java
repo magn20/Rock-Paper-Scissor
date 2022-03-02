@@ -191,7 +191,7 @@ public class GameViewController implements Initializable {
             }
         }
 
-    
+    }
 
 
     public String getResultAsString(Result result) {
