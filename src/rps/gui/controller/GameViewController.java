@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import rps.bll.game.GameManager;
@@ -58,6 +59,7 @@ public class GameViewController implements Initializable {
     private  int playerWin;
     private  int botWin;
     private  int ties;
+    private String playerName;
 
     /**
      * Initializes the controller class.
@@ -96,7 +98,7 @@ public class GameViewController implements Initializable {
 
             // lblInsertedUsername.setText() == lblUsername.getText();
 
-            String playerName = lblInsertedUsername.getText();
+            playerName = lblInsertedUsername.getText();
 
             gameStarted = true;
             IPlayer human = new Player(playerName, PlayerType.Human);
@@ -127,7 +129,7 @@ public class GameViewController implements Initializable {
     }
 
 
-    public void whoWon(Result result){
+    public void whoWon(Result result) {
         String statusText = result.getType() == ResultType.Win ? "wins over " : "ties ";
         lblWhoWon.setText(result.getWinnerPlayer().getPlayerName() +
                 " (" + result.getWinnerMove() + ") " +
@@ -135,22 +137,46 @@ public class GameViewController implements Initializable {
                 " (" + result.getLoserMove() + ")!");
 
 
-        if(result.getWinnerPlayer().getPlayerName() == lblUsername.getText()){
+        if (result.getType() == ResultType.Tie) {
+            ties++;
+            lblTies.setText(String.valueOf(ties));
+        } else if (result.getWinnerPlayer().getPlayerName() == playerName) {
             playerWin++;
             lblPlayerWins.setText(String.valueOf(playerWin));
 
-        }
-        else if (result.getWinnerPlayer().getPlayerName() == "Hans"){
+        } else if (result.getWinnerPlayer().getPlayerName() == "Hans") {
             botWin++;
             lblButWins.setText(String.valueOf(botWin));
         }
-        else{
-            ties++;
-            lblTies.setText(String.valueOf(ties));
+
+        if (result.getType() != ResultType.Tie){
+
+            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+                imgCombat.setImage(new Image("/rps/gui/img/image (1).png"));
+            }
+
+            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+                imgCombat.setImage(new Image("/rps/gui/img/Paper_Beats_Rock_ccexpress.png"));
+            }
+            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+                imgCombat.setImage(new Image("/rps/gui/img/image2.png"));
+            }
+
+            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == playerName){
+                imgCombat.setImage(new Image("/rps/gui/img/Scissors_Beats_Paper (1).png"));
+            }
+
+            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == playerName){
+                imgCombat.setImage(new Image("/rps/gui/img/image.png"));
+            }
+            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == playerName){
+                imgCombat.setImage(new Image("/rps/gui/img/Rock_Beats_Scissors_ccexpress (1).png"));
+            }
+
         }
+
+
     }
-
-
 
     public String getResultAsString(Result result) {
         String statusText = result.getType() == ResultType.Win ? "wins over " : "ties ";
