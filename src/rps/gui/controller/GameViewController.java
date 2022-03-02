@@ -1,6 +1,7 @@
 package rps.gui.controller;
 
 // Java imports
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +24,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- *
  * @author smsj
  */
 public class GameViewController implements Initializable {
@@ -56,9 +56,9 @@ public class GameViewController implements Initializable {
     private GameManager ge;
     private String playerMove = "";
     private boolean gameStarted;
-    private  int playerWin;
-    private  int botWin;
-    private  int ties;
+    private int playerWin;
+    private int botWin;
+    private int ties;
     private String playerName;
 
     /**
@@ -70,21 +70,21 @@ public class GameViewController implements Initializable {
     }
 
     public void OnPlayRock(MouseEvent mouseEvent) {
-        if (gameStarted){
+        if (gameStarted) {
             playerMove = "Rock";
             startGame();
         }
     }
 
     public void OnPlayPaper(MouseEvent mouseEvent) {
-        if (gameStarted){
+        if (gameStarted) {
             playerMove = "Paper";
             startGame();
         }
     }
 
     public void OnPlayScissor(MouseEvent mouseEvent) {
-        if (gameStarted){
+        if (gameStarted) {
             playerMove = "Scissor";
             startGame();
         }
@@ -110,7 +110,7 @@ public class GameViewController implements Initializable {
     }
 
 
-    public void startGame(){
+    public void startGame() {
 
         playerMove = getPlayerMove();
 
@@ -150,42 +150,46 @@ public class GameViewController implements Initializable {
         }
 
 
-        if (result.getType() != ResultType.Tie){
+        if (result.getType() != ResultType.Tie) {
 
-            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == "Hans") {
                 imgCombat.setImage(new Image("/rps/gui/img/image (1).png"));
             }
 
-            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == "Hans") {
                 imgCombat.setImage(new Image("/rps/gui/img/Paper_Beats_Rock_ccexpress.png"));
             }
-            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == "Hans") {
                 imgCombat.setImage(new Image("/rps/gui/img/image2.png"));
             }
 
-            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == playerName){
+            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == playerName) {
                 imgCombat.setImage(new Image("/rps/gui/img/Scissors_Beats_Paper (1).png"));
             }
 
-            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == playerName){
+            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == playerName) {
                 imgCombat.setImage(new Image("/rps/gui/img/image.png"));
             }
-            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == playerName){
+            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == playerName) {
                 imgCombat.setImage(new Image("/rps/gui/img/Rock_Beats_Scissors_ccexpress (1).png"));
             }
 
         }
 
-        if (result.getType() == ResultType.Tie){
+        if (result.getType() == ResultType.Tie) {
 
             if (String.valueOf(result.getWinnerMove()) == "Paper")
                 imgCombat.setImage(new Image("/rps/gui/img/Paper_Vs_Paper.png"));
+
+
+            if (String.valueOf(result.getWinnerMove()) == "Rock") {
+                imgCombat.setImage(new Image("/rps/gui/img/Rock_Vs_Rock.png"));
+            }
+
+            if (String.valueOf(result.getWinnerMove()) == "Scissor") {
+                imgCombat.setImage(new Image("/rps/gui/img/Rock_Vs_Rock.png"));
+            }
         }
-
-        if (String.valueOf(result.getWinnerMove()) == "Paper")
-            imgCombat.setImage(new Image("/rps/gui/img/Paper_Vs_Paper.png"));
-    }
-
 
     }
 
@@ -201,9 +205,8 @@ public class GameViewController implements Initializable {
     }
 
 
+    private String getPlayerMove() {
+        return playerMove;
 
-        private String getPlayerMove() {
-            return  playerMove;
-
-        }
     }
+}
