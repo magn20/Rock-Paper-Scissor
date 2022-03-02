@@ -27,7 +27,12 @@ import java.util.ResourceBundle;
 public class GameViewController implements Initializable {
 
 
-
+    public Label lblWhoWon;
+    public ImageView imgCombat;
+    public Label lblRoundNumber;
+    public Label lblButWins;
+    public Label lblTies;
+    public Label lblPlayerWins;
     @FXML
     private Label lblInsertedUsername;
     @FXML
