@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import rps.bll.game.GameManager;
@@ -147,6 +148,34 @@ public class GameViewController implements Initializable {
             botWin++;
             lblButWins.setText(String.valueOf(botWin));
         }
+
+        if (result.getType() != ResultType.Tie){
+
+            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+                imgCombat.setImage(new Image("/rps/gui/img/image (1).png"));
+            }
+
+            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+                imgCombat.setImage(new Image("/rps/gui/img/Paper_Beats_Rock_ccexpress.png"));
+            }
+            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == "Hans"){
+                imgCombat.setImage(new Image("/rps/gui/img/image2.png"));
+            }
+
+            if (String.valueOf(result.getWinnerMove()) == "Scissor" && result.getWinnerPlayer().getPlayerName() == playerName){
+                imgCombat.setImage(new Image("/rps/gui/img/Scissors_Beats_Paper (1).png"));
+            }
+
+            if (String.valueOf(result.getWinnerMove()) == "Paper" && result.getWinnerPlayer().getPlayerName() == playerName){
+                imgCombat.setImage(new Image("/rps/gui/img/image.png"));
+            }
+            if (String.valueOf(result.getWinnerMove()) == "Rock" && result.getWinnerPlayer().getPlayerName() == playerName){
+                imgCombat.setImage(new Image("/rps/gui/img/Rock_Beats_Scissors_ccexpress (1).png"));
+            }
+
+        }
+
+
     }
 
     public String getResultAsString(Result result) {
