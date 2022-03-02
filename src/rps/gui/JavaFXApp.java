@@ -25,7 +25,7 @@ public class JavaFXApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/rps/gui/view/GameView.fxml"));
-        
+
         primaryStage.setTitle("Rock Paper Scissor");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
