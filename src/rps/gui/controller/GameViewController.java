@@ -55,6 +55,10 @@ public class GameViewController implements Initializable {
     private GameManager ge;
     private String playerMove = "";
     private boolean gameStarted;
+    private  int playerWin;
+    private  int botWin;
+    private  int ties;
+
     /**
      * Initializes the controller class.
      */
@@ -129,7 +133,23 @@ public class GameViewController implements Initializable {
                 " (" + result.getWinnerMove() + ") " +
                 statusText + result.getLoserPlayer().getPlayerName() +
                 " (" + result.getLoserMove() + ")!");
+
+
+        if(result.getWinnerPlayer().getPlayerName() == lblUsername.getText()){
+            playerWin++;
+            lblPlayerWins.setText(String.valueOf(playerWin));
+
+        }
+        else if (result.getWinnerPlayer().getPlayerName() == "Hans"){
+            botWin++;
+            lblButWins.setText(String.valueOf(botWin));
+        }
+        else{
+            ties++;
+            lblTies.setText(String.valueOf(ties));
+        }
     }
+
 
 
     public String getResultAsString(Result result) {
