@@ -18,6 +18,7 @@ import rps.bll.player.PlayerType;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -113,13 +114,21 @@ public class GameViewController implements Initializable {
             System.out.println(getResultAsString(result));
         });
 
-        
-        ge.getGameState().
+        lblRoundNumber.setText("Round: " + String.valueOf(ge.getGameState().getRoundNumber()));
+
+
+        ArrayList<Result> resultsList = (ArrayList<Result>) ge.getGameState().getHistoricResults();
+        Result result = resultsList.get(resultsList.size() - 1);
+        whoWon(result);
     }
 
 
-    public void whowon(Result result){
-
+    public void whoWon(Result result){
+        String statusText = result.getType() == ResultType.Win ? "wins over " : "ties ";
+        lblWhoWon.setText(result.getWinnerPlayer().getPlayerName() +
+                " (" + result.getWinnerMove() + ") " +
+                statusText + result.getLoserPlayer().getPlayerName() +
+                " (" + result.getLoserMove() + ")!");
     }
 
 
