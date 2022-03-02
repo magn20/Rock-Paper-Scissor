@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import rps.bll.game.GameManager;
 import rps.bll.game.Move;
 import rps.bll.game.Result;
@@ -18,6 +20,7 @@ import rps.bll.player.IPlayer;
 import rps.bll.player.Player;
 import rps.bll.player.PlayerType;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -67,6 +70,7 @@ public class GameViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gameStarted = false;
+        soundTrack();
     }
 
     public void OnPlayRock(MouseEvent mouseEvent) {
@@ -208,5 +212,11 @@ public class GameViewController implements Initializable {
     private String getPlayerMove() {
         return playerMove;
 
+    }
+
+    public void soundTrack() {
+        Media media = new Media(getClass().getResource("rps/gui/sounds/The Worst Song Ever.mp3").toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
     }
 }

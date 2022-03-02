@@ -5,6 +5,8 @@ package rps.gui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import rps.gui.ConsoleApp;
 import rps.gui.JavaFXApp;
@@ -30,4 +32,5 @@ public class JavaFXApp extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+
 }
