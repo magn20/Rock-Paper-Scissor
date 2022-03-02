@@ -187,7 +187,7 @@ public class GameViewController implements Initializable {
             }
 
             if (String.valueOf(result.getWinnerMove()) == "Scissor") {
-                imgCombat.setImage(new Image("/rps/gui/img/Rock_Vs_Rock.png"));
+                imgCombat.setImage(new Image("/rps/gui/img/Scissors_Vs_Scissors.png"));
             }
         }
 
