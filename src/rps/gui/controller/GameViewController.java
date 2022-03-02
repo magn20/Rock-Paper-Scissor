@@ -173,6 +173,12 @@ public class GameViewController implements Initializable {
                 imgCombat.setImage(new Image("/rps/gui/img/Rock_Beats_Scissors_ccexpress (1).png"));
             }
 
+        if (result.getType() == ResultType.Tie){
+
+
+            
+        }
+
         }
 
 
