@@ -8,6 +8,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import rps.bll.game.GameManager;
+import rps.bll.game.Move;
+import rps.bll.game.Result;
+import rps.bll.game.ResultType;
+import rps.bll.player.IPlayer;
+import rps.bll.player.Player;
+import rps.bll.player.PlayerType;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,27 +29,47 @@ public class GameViewController implements Initializable {
 
 
     @FXML
-    public Label lblInsertedUsername;
-    public TextField lblUsername;
-    public ImageView RockBtn;
-    public ImageView PaperBtn;
-    public ImageView ScissorBtn;
+    private Label lblInsertedUsername;
+    @FXML
+    private TextField lblUsername;
+    @FXML
+    private ImageView RockBtn;
+    @FXML
+    private ImageView PaperBtn;
+    @FXML
+    private ImageView ScissorBtn;
 
+    private GameManager ge;
+    private String playerMove = "";
+    private boolean gameStarted;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        gameStarted = false;
     }
 
     public void OnPlayRock(MouseEvent mouseEvent) {
+        if (gameStarted){
+            playerMove = "Rock";
+            startGame();
+        }
     }
 
     public void OnPlayPaper(MouseEvent mouseEvent) {
+        if (gameStarted){
+            playerMove = "Paper";
+            startGame();
+        }
     }
 
     public void OnPlayScissor(MouseEvent mouseEvent) {
+        if (gameStarted){
+            playerMove = "Scissor";
+            startGame();
+        }
+
     }
 
     public void onSetName(ActionEvent actionEvent) throws IOException {
@@ -51,6 +78,48 @@ public class GameViewController implements Initializable {
             lblInsertedUsername.setText(lblUsername.getText());
 
             // lblInsertedUsername.setText() == lblUsername.getText();
+
+            String playerName = lblInsertedUsername.getText();
+
+            gameStarted = true;
+            IPlayer human = new Player(playerName, PlayerType.Human);
+            IPlayer bot = new Player("Hans", PlayerType.AI);
+
+            ge = new GameManager(human, bot);
+
+
+
         }
     }
-}
+
+
+    public void startGame(){
+
+        playerMove = getPlayerMove();
+
+        ge.playRound(Move.valueOf(playerMove));
+
+        ge.getGameState().getHistoricResults().forEach((result) -> {
+            System.out.println(getResultAsString(result));
+        });
+    }
+
+
+
+    public String getResultAsString(Result result) {
+        String statusText = result.getType() == ResultType.Win ? "wins over " : "ties ";
+
+        return "Round #" + result.getRoundNumber() + ":" +
+                result.getWinnerPlayer().getPlayerName() +
+                " (" + result.getWinnerMove() + ") " +
+                statusText + result.getLoserPlayer().getPlayerName() +
+                " (" + result.getLoserMove() + ")!";
+    }
+
+
+
+        private String getPlayerMove() {
+            return  playerMove;
+
+        }
+    }
