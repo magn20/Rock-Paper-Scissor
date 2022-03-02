@@ -87,8 +87,6 @@ public class GameViewController implements Initializable {
 
             ge = new GameManager(human, bot);
 
-
-
         }
     }
 
@@ -102,8 +100,15 @@ public class GameViewController implements Initializable {
         ge.getGameState().getHistoricResults().forEach((result) -> {
             System.out.println(getResultAsString(result));
         });
+
+        
+        ge.getGameState().
     }
 
+
+    public void whowon(Result result){
+
+    }
 
 
     public String getResultAsString(Result result) {
