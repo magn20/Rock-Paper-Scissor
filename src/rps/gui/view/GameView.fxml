@@ -41,24 +41,30 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="PlayerWins" layoutX="68.0" layoutY="332.0" text="0" textFill="WHITE">
+      <Label fx:id="lblPlayerWins" layoutX="68.0" layoutY="332.0" text="0" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label fx:id="Ties" layoutX="357.0" layoutY="332.0" text="0" textFill="WHITE">
+      <Label fx:id="lblTies" layoutX="357.0" layoutY="332.0" text="0" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label fx:id="ButWins" layoutX="667.0" layoutY="327.0" text="0" textFill="WHITE">
+      <Label fx:id="lblButWins" layoutX="667.0" layoutY="327.0" text="0" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label fx:id="RoundNumber" layoutX="303.0" layoutY="54.0" text="Round 0" textFill="WHITE">
+      <Label fx:id="lblRoundNumber" layoutX="303.0" layoutY="54.0" text="Round 0" textFill="WHITE">
          <font>
             <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgCombat" fitHeight="150.0" fitWidth="200.0" layoutX="270.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblWhoWon" layoutX="306.0" layoutY="108.0" text="Who won..." textFill="#fffefe">
+         <font>
+            <Font size="24.0" />
          </font>
       </Label>
    </children>
