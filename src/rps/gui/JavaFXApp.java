@@ -5,10 +5,13 @@ package rps.gui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import rps.gui.ConsoleApp;
-import rps.gui.JavaFXApp;
 import javafx.scene.Scene;
+
+import java.io.File;
+import java.net.URISyntaxException;
 
 /**
  * JavaFX implementation of the RPS game
@@ -29,5 +32,12 @@ public class JavaFXApp extends Application {
         primaryStage.setTitle("Rock Paper Scissor");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+
+
+        Media sound = new Media(new File("src/rps/resource/The Worst Song Ever.mp3").toURI().toString());
+        MediaPlayer player = new MediaPlayer(sound);
+        player.play();
     }
+
 }
