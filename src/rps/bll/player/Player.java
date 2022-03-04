@@ -103,20 +103,7 @@ public class Player implements IPlayer {
 
         System.out.println("The Bot just played Random");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
         double random = Math.random() * 3;
             int randomNumber = (int) random;
