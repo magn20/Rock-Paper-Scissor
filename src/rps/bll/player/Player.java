@@ -39,6 +39,8 @@ public class Player implements IPlayer {
     }
 
 
+    ArrayList<Move> playerMoves = new ArrayList<>();
+
     /**
      * Decides the next move for the bot...
      * @param state Contains the current game state including historic moves/results
@@ -51,7 +53,80 @@ public class Player implements IPlayer {
 
         //Implement better AI here...
         public Move doMove(IGameState state) {
-            double random = Math.random() * 3;
+
+
+        playerMoves = new ArrayList<>();
+        state.getHistoricResults().forEach((result) -> {
+            System.out.println(result.getWinnerPlayer().getPlayerType());
+            if(result.getWinnerPlayer().getPlayerType() == (PlayerType.AI)){
+                playerMoves.add(result.getLoserMove());
+            }else {
+                playerMoves.add(result.getWinnerMove());
+            }
+        });
+
+
+        ArrayList<Move> possibleMoves = new ArrayList<>();
+        possibleMoves.add(Move.Rock);
+        possibleMoves.add(Move.Paper);
+        possibleMoves.add(Move.Scissor);
+        int count = 1;
+        ArrayList<Move> rightMoves = new ArrayList<>();
+
+        if (!playerMoves.isEmpty()){
+            for (Move move: possibleMoves) {
+                if (playerMoves.get(playerMoves.size() - 1).equals(move)){
+                    for (Move testMove: playerMoves) {
+                        if (testMove.equals(move))
+                            if (playerMoves.size() > count ){
+                                rightMoves.add(playerMoves.get(count));
+                            }
+
+                        count++;
+                    }
+                }
+            }
+        }
+
+        int rockMoves = 0;
+        int paperMoves = 0;
+        int  scissorMoves = 0;
+        for (Move ourMove: rightMoves) {
+            if (ourMove.equals(Move.Rock)) rockMoves++;
+            if (ourMove.equals(Move.Paper)) paperMoves++;
+            if (ourMove.equals(Move.Scissor)) scissorMoves++;
+        }
+        System.out.println(rightMoves);
+        System.out.println(rockMoves);
+        System.out.println(paperMoves);
+        System.out.println(scissorMoves);
+        if (rockMoves > paperMoves && rockMoves > scissorMoves) return Move.Paper;
+        if (paperMoves > rockMoves && paperMoves > scissorMoves) return Move.Scissor;
+        if (scissorMoves > rockMoves && scissorMoves > paperMoves) return Move.Rock;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        double random = Math.random() * 3;
             int randomNumber = (int) random;
             switch (randomNumber) {
                 case 0:
