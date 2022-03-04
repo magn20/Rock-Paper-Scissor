@@ -57,7 +57,6 @@ public class Player implements IPlayer {
 
         playerMoves = new ArrayList<>();
         state.getHistoricResults().forEach((result) -> {
-            System.out.println(result.getWinnerPlayer().getPlayerType());
             if(result.getWinnerPlayer().getPlayerType() == (PlayerType.AI)){
                 playerMoves.add(result.getLoserMove());
             }else {
@@ -96,20 +95,13 @@ public class Player implements IPlayer {
             if (ourMove.equals(Move.Paper)) paperMoves++;
             if (ourMove.equals(Move.Scissor)) scissorMoves++;
         }
-        System.out.println(rightMoves);
-        System.out.println(rockMoves);
-        System.out.println(paperMoves);
-        System.out.println(scissorMoves);
         if (rockMoves > paperMoves && rockMoves > scissorMoves) return Move.Paper;
         if (paperMoves > rockMoves && paperMoves > scissorMoves) return Move.Scissor;
         if (scissorMoves > rockMoves && scissorMoves > paperMoves) return Move.Rock;
 
 
 
-
-
-
-
+        System.out.println("The Bot just played Random");
 
 
 

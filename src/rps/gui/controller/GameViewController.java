@@ -120,9 +120,7 @@ public class GameViewController implements Initializable {
 
         ge.playRound(Move.valueOf(playerMove));
 
-        ge.getGameState().getHistoricResults().forEach((result) -> {
-            System.out.println(getResultAsString(result));
-        });
+
 
         lblRoundNumber.setText("Round: " + String.valueOf(ge.getGameState().getRoundNumber()));
 

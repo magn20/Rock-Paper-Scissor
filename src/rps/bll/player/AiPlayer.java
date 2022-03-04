@@ -18,7 +18,7 @@ public class AiPlayer implements IPlayer{
     public PlayerType getPlayerType() {
         return null;
     }
-    
+
     @Override
     public Move doMove(IGameState state) {
       double random = Math.random() * 3;
